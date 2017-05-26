@@ -18,7 +18,7 @@
 				        <li><a href="#">Test your knowledge</a></li>
 				    </ul>
 				    <ul class="nav navbar-nav navbar-right">
-				    	<li class="dropdown"> 
+				    	<li class="dropdown">    
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="aktivnosti"> My profile <b class="caret"></b></a> 
 							<ul class="dropdown-menu"> 
 								<li><a href="#">Favourites</a></li> 

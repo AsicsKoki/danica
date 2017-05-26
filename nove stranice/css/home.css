@@ -1,0 +1,140 @@
+body{
+	background-color:#3399ff !important;
+}
+
+.navbar-default{
+	border:2px #f8f8f8 solid !important;
+}
+
+.navbar-nav > li.active > a {
+	background-color:#3399ff !important;
+	color:#F8F8F8 !important;
+	font-weight: bold
+}
+
+.navbar-nav > li > a {
+	color:#3399ff !important;
+	font-size: 20px;
+	padding: 20px;
+	border-radius: 5px;
+}
+
+.logo{
+	padding: 5px;
+}
+
+.content{
+	background-color: #F8F8F8;
+	border-radius: 5px;
+	color:#6A6969;
+}
+
+.news{
+	color:#F8F8F8 !important;
+}
+
+.dropdown-menu > li > a{
+	color:#3399ff;
+}
+
+.dropdown-menu > li > a:hover{
+	color:#3399ff;
+}
+
+.predmet{
+	padding: 20px;
+	border-radius: 5px;
+	color:#F8F8F8;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+#predmet1{
+	background: url(../img/fizika.png);
+}
+
+#predmet2{
+	background: url(../img/matematika.jpg);
+	font-size: 18px;
+}
+
+#predmet3{
+	background: url(../img/biologija.jpg);
+
+}
+
+#slika{
+	background: url(../img/fizika_lg.png);	
+}
+
+#text{
+	color: white  !important;
+	opacity: +4;
+	 font-weight: bold;
+}
+.modmodmod{
+	height:400px;
+}
+.dialogmodal{   opacity: -10;
+    filter: alpha(opacity=10); /* For IE8 and earlier */} 
+.rating {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 110px;
+  height: 25px;
+  padding: 5px 5px;
+  margin: auto;
+  border-radius: 10px;
+  background: #FFF;
+  display: block;
+  overflow: hidden;
+  
+  box-shadow: 0 1px #CCC,
+              0 2px #DDD,
+              0 3px 2px -1px #999;
+  
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating:not(:checked) > input {
+  display: none;
+}
+
+/* - - - - - RATE */
+#rate {
+  top: -55px;
+}
+#rate:not(:checked) > label {
+  cursor:pointer;
+  float: right;
+  width: 20px;
+  height: 20px;
+  display: block;
+  
+  color: rgba(0, 135, 211, .4);
+  line-height: 23px;
+  text-align: center;
+}
+#rate:not(:checked) > label:hover,
+#rate:not(:checked) > label:hover ~ label {
+  color: rgba(0, 135, 211, .6);
+}
+#rate > input:checked + label:hover,
+#rate > input:checked + label:hover ~ label,
+#rate > input:checked ~ label:hover,
+#rate > input:checked ~ label:hover ~ label,
+#rate > label:hover ~ input:checked ~ label {
+  color: rgba(0, 135, 211, .8);
+}
+#rate > input:checked ~ label {
+  color: rgb(0, 135, 211);
+}
+.rss{
+ color:#4787ed;
+   background-color: yellow;
+  opacity: +4;
+  background-color: rgba(119, 119, 119, 1) ! important;
+}

@@ -1,0 +1,67 @@
+body{
+	background-color:#3399ff !important;
+}
+
+.navbar-default{
+	border:2px #f8f8f8 solid !important;
+}
+
+.navbar-nav > li.active > a {
+	background-color:#3399ff !important;
+	color:#F8F8F8 !important;
+	font-weight: bold
+}
+
+.navbar-nav > li > a {
+	color:#3399ff !important;
+	font-size: 20px;
+	padding: 20px;
+	border-radius: 5px;
+}
+
+.logo{
+	padding: 5px;
+}
+
+.content{
+	background-color: #F8F8F8;
+	border-radius: 5px;
+	color:#6A6969;
+}
+
+.news{
+	color:#F8F8F8 !important;
+}
+
+.dropdown-menu > li > a{
+	color:#3399ff;
+}
+
+.dropdown-menu > li > a:hover{
+	color:#3399ff;
+}
+
+.predmet{
+	padding: 20px;
+	border-radius: 5px;
+	color:#F8F8F8;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+#predmet1{
+	background: url(../img/fizika.png);
+}
+
+#predmet2{
+	background: url(../img/matematika.jpg);
+	font-size: 18px;
+}
+
+#predmet3{
+	background: url(../img/biologija.jpg);
+}
+
+#slika{
+	background: url(../img/fizika_lg.png);	
+}

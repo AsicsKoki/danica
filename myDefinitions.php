@@ -14,7 +14,7 @@
 	}
 	$uid = $_SESSION["id"];
 
- 	$sqlDefinitions     = "SELECT * FROM definitions WHERE user_id = '$uid'";
+ 	$sqlDefinitions     = "SELECT definitions.*, subject_name FROM definitions INNER JOIN subjects ON definitions.subject_id = subjects.id WHERE user_id = '$uid'";
  	$definitions       		= mysql_query($sqlDefinitions, $connection) or die(mysql_error());
 
  	$sqlSubjects = "SELECT * FROM subjects";
@@ -60,7 +60,7 @@
 
 					 	while($definition = mysql_fetch_assoc($definitions)) {
 							?>
-							<li><?php echo $definition['definition']; ?> - predmet <?php  ?><br/> - <?php  ?> <a href=<?php echo "deleteDefinition.php?definitionId=". $definition['id']?>>Delete -</a><br/><br/></li>
+							<li><?php echo $definition['definition']; ?> - <?php echo $definition['subject_name'] ?> <?php ?><br/> - <?php  ?> <a href=<?php echo "deleteDefinition.php?definitionId=". $definition['id']?>>Delete -</a><br/><br/></li>
 						<?php
 					 	}
 					?>

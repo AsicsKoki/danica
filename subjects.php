@@ -13,13 +13,16 @@
 		header("Location: /danica/index.php");
 	}
 	$uid = $_SESSION["id"];
+	$subjectId   = $_GET['subjectId'];
 
- 	$sqlDefinitions     = "SELECT definitions.*, subject_name FROM definitions INNER JOIN subjects ON definitions.subject_id = subjects.id WHERE user_id = '$uid'";
+ 	$sqlDefinitions     = "SELECT definitions.*, subject_name FROM definitions INNER JOIN subjects ON definitions.subject_id = subjects.id WHERE subject_id = '$subjectId'";
  	$definitions       		= mysql_query($sqlDefinitions, $connection) or die(mysql_error());
 
  	$sqlSubjects = "SELECT * FROM subjects";
  	$subjects = mysql_query($sqlSubjects, $connection) or die(mysql_error());
-
+ 	$sqlSubjectsName = "SELECT * FROM subjects WHERE id='$subjectId'";
+ 	$subjectName = mysql_query($sqlSubjectsName, $connection);
+ 	$subjectNamee = mysql_fetch_assoc($subjectName);
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,23 +59,18 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 content">
-					<center><h3>Choose a subject you would like to study:</h3></center>
-					<ul><hr>
+					<br/>
+					<h3>Definitions for <?php echo $subjectNamee['subject_name'] ?> are:</h3><br/>
+					<ol>
 					<?php
 
-					 	while($subject = mysql_fetch_assoc($subjects)) {
+					 	while($definition = mysql_fetch_assoc($definitions)) {
 							?>
-							<li>
-								<a href=<?php echo "subjects.php?subjectId=". $subject['id']?>>
-									<b><?php echo $subject['subject_name']; ?></b>
-								</a> <br/>
-								<?php echo $subject['subject_description']; ?><?php  ?><br/>
-
-							</li><hr/>
+							<li><?php echo $definition['definition']; ?> </li><br/>
 						<?php
 					 	}
 					?>
-					</ul>
+					</ol>
 				</div>
 			</div>
 		</div>

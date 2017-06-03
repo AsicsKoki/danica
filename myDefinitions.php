@@ -54,7 +54,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 content">
-				<h3>Kreirane definicije:</h3>
+				<h3>Your created definitions:</h3>
 					<ol>
 					<?php
 
@@ -67,7 +67,7 @@
 					</ol>
 				</div>
 				<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-					<h2 class="news">Kreiraj svoju definiciju!</h2><br>
+					<h2 class="news">Create your definition!</h2><br>
 					<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 						<form action="postDefinition.php" method="POST">
 							<div class="row">
@@ -84,7 +84,7 @@
 							</div>
 							<br>
 							<div class="row">
-								<textarea id="textDefinition" name="definition" placeholder="Unesi definiciju..." rows="5"  class="form-control"></textarea>
+								<textarea id="textDefinition" name="definition" placeholder="Write your definition here..." rows="7"  class="form-control" required></textarea>
 							</div>
 							<br>
 							<div class="row">

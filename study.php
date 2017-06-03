@@ -55,13 +55,14 @@
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 content"><br/>
-					<ul>
+				<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 content">
+					<center><h3 content>Choose a subject you would like to study:</h3></center>
+					<ul><hr>
 					<?php
 
 					 	while($subject = mysql_fetch_assoc($subjects)) {
 							?>
-							<li><a href="#"><b><?php echo $subject['subject_name']; ?></b></a> <br/><?php echo $subject['subject_description']; ?><?php  ?><br/><br/></li>
+							<li><a href="#"><b><?php echo $subject['subject_name']; ?></b></a> <br/><?php echo $subject['subject_description']; ?><?php  ?><br/><br/></li><hr/>
 						<?php
 					 	}
 					?>

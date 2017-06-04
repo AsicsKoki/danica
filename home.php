@@ -60,10 +60,21 @@
 						<br>Iz predmeta: Biologija</li>
 					</ol>
 				</div>
-				<div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 h2 news">Vesti iz sveta nauke</div>
+				<div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 h2 news">Vesti iz sveta nauke
+				<form>
+				<select onchange="showRSS(this.value)" class="rss">
+					<option value="" class="rss">Izaberite RSS feed</option>
+				<option value="Google" class="rss">Google News</option>
+				<option value="NBC" class="rss">NBC News</option>
+				</select>
+				</form>
+				<br>
+				<br>
+				<br>
+				<div id="rssOutput">Rss feed ce se ovde pojaviti
 			</div>
 		</div>
-
+</div>
 		<div class="modal fade" id="modalPredmet1" tabindex="-1" role="dialog" aria-labelledby="modalPredmet1">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
@@ -79,5 +90,27 @@
 					</div>
 				</div>
 			</div>
+
+<script>
+function showRSS(str) {
+  if (str.length==0) { 
+    document.getElementById("rssOutput").innerHTML="";
+    return;
+  }
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else {  // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("rssOutput").innerHTML=this.responseText;
+    }
+  }
+  xmlhttp.open("GET","getrss.php?q="+str,true);
+  xmlhttp.send();
+}
+</script>
 	</body>
 </html>	

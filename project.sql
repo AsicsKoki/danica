@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2017 at 05:47 PM
+-- Generation Time: Jun 07, 2017 at 07:58 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -117,7 +117,8 @@ INSERT INTO `definitions` (`id`, `subject_id`, `user_id`, `definition`) VALUES
 (104, 8, 1, 'Avant-garde is french for â€œadvanced guard,â€ this term is used in English to describe a group that is innovative, experimental, and inventive in its technique or ideology, particularly in the realms of culture, politics, and the arts.'),
 (105, 8, 1, 'Canon is a group of artistic, literary, or musical works that are generally accepted as representing a field.'),
 (106, 8, 1, 'Calligraphy is a visual art related to writing. It is the design and execution of lettering with a broad tip instrument, brush, or other writing instruments.'),
-(108, 8, 1, 'Conceptual art is art that emerged in the late 1960s, emphasizing ideas and theoretical practices rather than the creation of visual forms. In 1967, the artist Sol LeWitt gave the new genre its name in his essay â€œParagraphs on Conceptual Art,â€ in which he wrote, â€œThe idea itself, even if not made visual, is as much a work of art as any finished product.â€');
+(108, 8, 1, 'Conceptual art is art that emerged in the late 1960s, emphasizing ideas and theoretical practices rather than the creation of visual forms. In 1967, the artist Sol LeWitt gave the new genre its name in his essay â€œParagraphs on Conceptual Art,â€ in which he wrote, â€œThe idea itself, even if not made visual, is as much a work of art as any finished product.â€'),
+(110, 5, 2, 'Astronomija\r\n');
 
 -- --------------------------------------------------------
 
@@ -148,10 +149,10 @@ INSERT INTO `subjects` (`id`, `subject_name`, `subject_description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(30) NOT NULL,
@@ -162,10 +163,10 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `date_joined`) VALUES
+INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `date_joined`) VALUES
 (1, 'admin', 'admin', 'Danica', 'Popadic', 'danicaozb@gmail.com', '2017-04-07 18:51:47'),
 (2, 'danica', 'danica', 'danica', 'popadic', 'danicaozb@gmail.com', '2017-06-03 15:43:19');
 
@@ -189,9 +190,9 @@ ALTER TABLE `subjects`
   ADD UNIQUE KEY `ime_predmet` (`subject_name`);
 
 --
--- Indexes for table `user`
+-- Indexes for table `users`
 --
-ALTER TABLE `user`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`),
   ADD KEY `id` (`id`);
@@ -204,16 +205,16 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `definitions`
 --
 ALTER TABLE `definitions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 --
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `user`
+ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
@@ -223,7 +224,7 @@ ALTER TABLE `user`
 -- Constraints for table `definitions`
 --
 ALTER TABLE `definitions`
-  ADD CONSTRAINT `definitions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `definitions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `definitions_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

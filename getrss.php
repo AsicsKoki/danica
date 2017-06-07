@@ -5,7 +5,7 @@
 
 							//find out which feed was selected
 							if($q=="Google") {
-							  $xml=("http://news.google.com/news?ned=us&topic=h&output=rss");
+							  $xml=("https://news.google.com/news/section?cf=all&ned=us&topic=snc&siidp=d948afe5771f154a8451700c1d173f05fb0b&ict=ln/news?ned=us&topic=h&output=rss");
 							} elseif($q=="NBC") {
 							  $xml=("http://rss.msnbc.msn.com/id/3032091/device/rss/rss.xml");
 							}

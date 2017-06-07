@@ -15,7 +15,7 @@
 	$uid = $_SESSION["id"];
 	$subjectId   = $_GET['subjectId'];
 
- 	$sqlDefinitions     = "SELECT definitions.*, subject_name FROM definitions INNER JOIN subjects ON definitions.subject_id = subjects.id WHERE subject_id = '$subjectId'";
+ 	$sqlDefinitions     = "SELECT definitions.*, subject_name, username FROM definitions INNER JOIN subjects ON definitions.subject_id = subjects.id INNER JOIN users ON definitions.user_id = users.id WHERE subject_id = '$subjectId'";
  	$definitions       		= mysql_query($sqlDefinitions, $connection) or die(mysql_error());
 
  	$sqlSubjects = "SELECT * FROM subjects";
@@ -66,7 +66,7 @@
 
 					 	while($definition = mysql_fetch_assoc($definitions)) {
 							?>
-							<li><?php echo $definition['definition']; ?> </li><br/>
+							<li><?php echo $definition['definition']; ?> <br/><span style="color:#3399ff;"> - definition by <?php echo $definition['username'] ?></span><a class="pull-right definition" data-id = "<?php echo $definition['id']; ?>" style="color:#3399ff; font-weight: bold;">REPORT DEFINITION</a></li><br/>
 						<?php
 					 	}
 					?>
@@ -74,5 +74,26 @@
 				</div>
 			</div>
 		</div>
+
+		<script type="text/javascript">
+
+		$(".definition").click(function(e){
+			alert('Definition reported!');
+			e.preventDefault();
+			var definitionId = $(this).data('id');
+			var emailid = 'danicaozb@gmail.com',
+		    data = { 
+		    	email: emailid,
+    		 	definitionId: definitionId 
+    		};
+			$.ajax({
+			           type: "POST",
+			           url: "report.php",
+			           data: data,
+			           dataType: "text"
+			});
+		});
+	
+		</script>
 	</body>
 </html>

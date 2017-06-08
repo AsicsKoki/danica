@@ -23,8 +23,7 @@
 							->item(0)->childNodes->item(0)->nodeValue;
 
 							//output elements from "<channel>"
-							echo("<p><a href='" . $channel_link
-							  . "'>" . $channel_title . "</a>");
+							echo("<p><a href='" . $channel_link . "'>" . $channel_title . "</a>");
 							echo("<br>");
 							echo($channel_desc . "</p>");
 
@@ -37,8 +36,7 @@
 							  ->item(0)->childNodes->item(0)->nodeValue;
 							  $item_desc=$x->item($i)->getElementsByTagName('description')
 							  ->item(0)->childNodes->item(0)->nodeValue;
-							  echo ("<p><a href='" . $item_link
-							  . "'>" . $item_title . "</a>");
+							  echo ("<p><a href='" . $item_link . "'>" . $item_title . "</a>");
 							  echo ("<br>");
 							  echo ($item_desc . "</p>");
 							}

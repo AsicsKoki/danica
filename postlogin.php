@@ -24,7 +24,7 @@
 		$_SESSION["first_name"]= $data['first_name'];
 		$_SESSION["email"]= $data['email'];
 		$_SESSION["date_joined"]= $data['date_joined'];
-		header("Location: /danica/home.php");
+		header("Location: home.php");
 		exit();
 	 } else {
 	 	$msg = "Wrong username, or password!";

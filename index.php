@@ -10,7 +10,7 @@
         <meta name="author" content="">
         <link rel="icon" href="../../favicon.ico">
 
-        <title>Log in to Learnicious</title>
+        <title>Login to Learnicious</title>
 
         <!-- Bootstrap core CSS -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -20,9 +20,9 @@
 
      <div class="container">
         <div class="card card-container">
-           <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+           <img id="profile-img" class="profile-img-card" src="img/avatar_2x.png" />
             <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin" method="POST" action="postLogin.php">
+            <form class="form-signin" method="POST" action="postlogin.php">
                 <span id="reauth-username" class="reauth-username"></span>
                 <input type="username" name="username" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
                 <!-- change email to username style!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->

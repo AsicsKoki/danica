@@ -10,7 +10,7 @@
 
  	//check if the user is logggggged in
 	if(!isset($_SESSION['username'])){
-		header("Location: /danica/index.php");
+		header("Location: index.php");
 	}
 	$uid = $_SESSION["id"];
 

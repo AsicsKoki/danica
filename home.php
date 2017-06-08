@@ -3,17 +3,21 @@
 
  	//check if the user is logggggged in
 	if(!isset($_SESSION['username'])){
-		header("Location: /danica/index.php");
-	}
-?>
+		header("Location: index.php");
+	
+			
+			    	}
+			    	?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Home - Learnicious</title>
+		<meta charset="utf-8">
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" type="text/css"  href="css/home.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
+		
 	</head>
 	<body>
 		<div>
@@ -61,19 +65,11 @@
 					</ol>
 				</div>
 				<div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 h2 news">Vesti iz sveta nauke
-				<form>
-				<select onchange="showRSS(this.value)" class="rss">
-					<option value="" class="rss">Izaberite RSS feed</option>
-				<option value="Google" class="rss">Google News</option>
-				<option value="NBC" class="rss">NBC News</option>
-				</select>
-				</form>
-				<br>
-				<br>
-				<br>
-				<div id="rssOutput">Rss feed ce se ovde pojaviti
-			</div>
-		</div>
+				
+				<iframe width="400" height="400" style="border:none;" src="http://output48.rssinclude.com/output?type=iframe&amp;id=1142597&amp;hash=c9bd42030ea4f7a8ffbf91c0570127c2"></iframe>
+				
+
+					</div>
 </div>
 		<div class="modal fade" id="modalPredmet1" tabindex="-1" role="dialog" aria-labelledby="modalPredmet1">
 				<div class="modal-dialog" role="document">
@@ -91,26 +87,5 @@
 				</div>
 			</div>
 
-<script>
-function showRSS(str) {
-  if (str.length==0) { 
-    document.getElementById("rssOutput").innerHTML="";
-    return;
-  }
-  if (window.XMLHttpRequest) {
-    // code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp=new XMLHttpRequest();
-  } else {  // code for IE6, IE5
-    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  xmlhttp.onreadystatechange=function() {
-    if (this.readyState==4 && this.status==200) {
-      document.getElementById("rssOutput").innerHTML=this.responseText;
-    }
-  }
-  xmlhttp.open("GET","getrss.php?q="+str,true);
-  xmlhttp.send();
-}
-</script>
 	</body>
 </html>	

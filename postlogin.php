@@ -11,7 +11,7 @@
 	 if(isset($_POST['username'], $_POST['password'])){
 	 	$username = $_POST['username'];
 	 	$password = $_POST['password'];
-	 	$sql      = "SELECT * FROM user WHERE username='$username' AND password='$password'";
+	 	$sql      = "SELECT * FROM users WHERE username='$username' AND password='$password'";
 	 	$result   = mysql_query($sql, $connection);
 	 	$data     = mysql_fetch_assoc($result);
 	 	
@@ -24,7 +24,7 @@
 		$_SESSION["first_name"]= $data['first_name'];
 		$_SESSION["email"]= $data['email'];
 		$_SESSION["date_joined"]= $data['date_joined'];
-		header("Location: home.php");
+		header("Location: /danica/home.php");
 		exit();
 	 } else {
 	 	$msg = "Wrong username, or password!";

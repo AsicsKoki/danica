@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2017 at 08:04 PM
+-- Generation Time: Jun 08, 2017 at 10:50 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -143,7 +143,27 @@ CREATE TABLE `questions` (
 
 INSERT INTO `questions` (`id`, `subject_id`, `user_id`, `question`, `correct_answer`, `answer1`, `answer2`) VALUES
 (4, 1, 2, 'pitanjenjejnje', 'pravi', 'nije', 'nije'),
-(6, 1, 2, 'hffhfasihfshoifsaih', 'jfkfs', 'jfdihfsdih', 'hfhe');
+(6, 1, 2, 'hffhfasihfshoifsaih', 'jfkfs', 'jfdihfsdih', 'hfhe'),
+(8, 1, 1, 'What does the internal energy means?', 'The internal energy is a function of state and the total microscopic kinetic and potential energies of the particles composing the system', 'Internal energy is a new way of energy.', 'Internal energy can change.'),
+(9, 1, 1, 'First law of thermodynamics means what?', 'First law of thermodynamics state that internal energy is a function of state and the increase in internal energy is equal to the sum of the heat supplied to system and work done on system', 'It is actually second ', 'No there is not first law'),
+(10, 1, 1, 'What is  speed?', 'Speed is the rate of change of distance traveled with respect to time.', 'Speed is  not negligence', 'speed is not a factor on the effectiveness of your restraint systems'),
+(11, 1, 1, 'What is velocity?', 'Velocity is the rate of change of its displacement with respect to time.', 'Velocity is not a function', 'Velocity is not defined'),
+(12, 1, 1, 'What is acceleration?', 'Acceleration of an object is the rate of change of its velocity with respect to time', 'Acceleration is not constant', 'Is not relative.'),
+(13, 1, 1, 'What is the principle of moments states?', '\r\nThe principle of moments states that, when an object is in equilibrium, the sum of anticlockwise moments about any point equals the sum of clockwise moments about the same point', 'It is not actually principle.', 'It is not sum '),
+(14, 1, 1, 'What is the moment of a force?', 'The moment of a force is the product of the force and the perpendicular distance between the axis of rotation and the line of action of the force', 'It is not a moment', 'It is not about distance'),
+(15, 1, 1, 'What is stability?', 'Stability of an object refers to its ability to return to its original position after it has been displaced from that position.', 'Stability is not an object', 'Can not move to its original position'),
+(16, 1, 1, 'What is pressure?', 'Pressure is force acting per unit area. ', 'Pressure is not a state function', 'Pressure is not force'),
+(17, 1, 1, 'Physics is?', 'The branch of science concerned with the nature and properties of matter and energy. The subject matter of physics includes mechanics, heat, light and other radiation, sound, electricity, magnetism, and the structure of atoms', 'It is not about mechanics', 'It is not about heat'),
+(18, 2, 1, 'What is addition?', 'Addition is bringing two or more numbers (or things) together to make a new total. The numbers to be added together are called the \"Addends\"', 'Addition can not bring together', 'Numbers can not be added'),
+(19, 2, 1, 'What is division?', 'The division of two natural numbers is the process of calculating the number of times one number is contained within one another. Division can also be thought of as the process of evaluating a fraction, and fractional notation (a/b) is commonly used to represent division', 'Division is not important', 'Division is addition'),
+(20, 2, 1, 'What is multiplication?', 'Multiplication is (in its simplest form) repeated addition. But we can also multiply by fractions or decimals, which goes beyond the simple idea of repeated addition', 'Multiplication is not addition', 'It is division'),
+(21, 2, 1, 'What is cone?', 'Cone is a three dimensional shape with only one vertex, having a circular base', 'Cone is 2D shape', 'Cone is 4Dshape'),
+(22, 2, 1, 'What is diagonal?', 'Diagonal is a line segment that connects two vertices in a polygon', 'Diagonal is not line', 'Diagonal can not connects two verticals'),
+(23, 2, 1, 'FB means what?', 'N\r\n\r\nFibonacci Sequence is a sequence whereby each number is the sum of the two numbers preceding it.', 'FBI :D', 'Facebook'),
+(24, 1, 1, 'What is formula?', '\r\nFormula is a rule that describes the relationship of two or more variables. An equation stating the rule', 'Formula can not describe the relationship', 'Formula is not a rule'),
+(25, 1, 1, 'What is frequency?', 'Frequency is the number of times an event can happen in a specific period of times. Often used in probability.', 'Frequency is not the number of times', 'Can not be used in probability'),
+(26, 1, 1, 'What is logarithm?', '\r\nLogarithm is a power to which a base, [actually 10] must be raised to produce a given number. If nx = a, the logarithm of a, with n as the base, is x.', 'Logarithm is not a power ', 'Can not be raised'),
+(27, 2, 1, 'What does H topology means?', 'In algebraic geometry, the h topology is a Grothendieck topology introduced by Vladimir Voevodsky to study the homology of schemes. It has several variants, such as the qfh and cdh topologies.', 'H topology means that topology looks like letter H.', 'H topology means that we have three topologies in one scheme.');
 
 -- --------------------------------------------------------
 
@@ -244,7 +264,7 @@ ALTER TABLE `definitions`
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `subjects`
 --

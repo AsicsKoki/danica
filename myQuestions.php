@@ -64,11 +64,12 @@
 
 					 	while($question = mysql_fetch_assoc($questions)) {
 							?>
-							<li><span class="plavaSlova">Question: </span><?php echo $question['question']; ?>
+							<li><span class="plavaSlova">Subject: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span><?php echo $question['subject_name'] ?>
+							<br/><span class="plavaSlova">Question: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span><?php echo $question['question']; ?>
 							<br/><span class="plavaSlova">Correct answer: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span><?php echo $question['correct_answer']; ?>
 							<br/><span class="plavaSlova">First incorrect answer: &nbsp&nbsp&nbsp&nbsp&nbsp</span><?php echo $question['answer1']; ?>
 							<br/><span class="plavaSlova">Second incorrect answer: </span><?php echo $question['answer2']; ?>
-							 - <?php echo $question['subject_name'] ?> <?php ?><br/> - <?php  ?> <a href=<?php echo "deleteQuestion.php?questionId=". $question['id']?>> Delete -</a><br/><br/></li>
+							  <?php ?><br/><a class="plavaSlova pull-right" href=<?php echo "deleteQuestion.php?questionId=". $question['id']?>>Delete</a><br/><br/></li>
 						<?php
 					 	}
 					?>
@@ -96,13 +97,13 @@
 								<textarea id="textQuestion" name="question" placeholder="Write your question here..." rows="3"  class="form-control" required></textarea>
 							</div><br/>
 							<div class="row">
-								<textarea id="correctAnswer" name="correctAnswer"  placeholder="Write CORRECT answer here..." rows="1"  class="form-control" required></textarea>
+								<textarea id="correctAnswer" name="correctAnswer"  placeholder="Write CORRECT answer here..." rows="3"  class="form-control" required></textarea>
 							</div><br/>
 							<div class="row">
-								<textarea id="Answer1" name="answer1" placeholder="Write first INCORRECT answer here..." rows="1"  class="form-control" required></textarea>
+								<textarea id="Answer1" name="answer1" placeholder="Write first INCORRECT answer here..." rows="3"  class="form-control" required></textarea>
 							</div><br/>
 							<div class="row">
-								<textarea id="Answer2" name="answer2" placeholder="Write second INCORRECT answer here..." rows="1"  class="form-control" required></textarea>
+								<textarea id="Answer2" name="answer2" placeholder="Write second INCORRECT answer here..." rows="3"  class="form-control" required></textarea>
 							</div>
 							<br>
 							<div class="row">

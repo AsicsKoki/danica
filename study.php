@@ -63,13 +63,14 @@
 
 					 	while($subject = mysql_fetch_assoc($subjects)) {
 							?>
-							<li>
+							<li  class="plavaSlova">
 								<a class="plavaSlova" href=<?php echo "subjects.php?subjectId=". $subject['id']?>>
 									<b><?php echo $subject['subject_name']; ?></b>
 								</a> <br/>
-								<?php echo $subject['subject_description']; ?><?php  ?><br/>
-
-							</li><hr/>
+								
+							</li>
+							<p><?php echo $subject['subject_description']; ?><?php  ?><br/></p>
+							<hr/>
 						<?php
 					 	}
 					?>

@@ -61,7 +61,9 @@
 
 					 	while($definition = mysql_fetch_assoc($definitions)) {
 							?>
-							<li><?php echo $definition['definition']; ?> - <?php echo $definition['subject_name'] ?> <?php ?><br/> - <?php  ?> <a href=<?php echo "deleteDefinition.php?definitionId=". $definition['id']?>>Delete -</a><br/><br/></li>
+							<li>
+							<span class="plavaSlova">Subject: </span><?php echo $definition['subject_name'] ?><br/>
+							<?php echo $definition['definition']; ?><br/><a class="plavaSlova pull-right" href=<?php echo "deleteDefinition.php?definitionId=". $definition['id']?>>Delete</a><br/><br/></li>
 						<?php
 					 	}
 					?>

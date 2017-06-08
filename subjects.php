@@ -67,7 +67,7 @@
 
 					 	while($definition = mysql_fetch_assoc($definitions)) {
 							?>
-							<li><?php echo $definition['definition']; ?> <br/><span style="color:#3399ff;"> - definition by <?php echo $definition['username'] ?></span><a class="pull-right definition" data-id = "<?php echo $definition['id']; ?>" style="color:#3399ff; font-weight: bold;">REPORT DEFINITION</a></li><br/>
+							<li><?php echo $definition['definition']; ?> <br/><span style="color:#3399ff;"> - definition by <?php echo $definition['username'] ?></span><a class="pull-right definition" data-id = "<?php echo $definition['id']; ?>" style="color:#3399ff; font-weight: bold;"><img src="img/report.png"/></a></li><br/>
 						<?php
 					 	}
 					?>

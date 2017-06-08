@@ -66,7 +66,7 @@
 			<div class="row">
 				<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 content">
 					<br/>
-					<center><h3>Test from <?php echo $subjectNamee['subject_name'] ?> !</h3></center><br/>
+					<center><h3><?php echo $subjectNamee['subject_name'] ?> test!</h3></center><br/>
 					<form>
 					<ol>
 					<?php
@@ -77,7 +77,7 @@
 							<input type="radio" value="<?php echo $question['correct_answer']; ?>" name="<?php echo $question['id']; ?>" > <?php echo $question['correct_answer'];?> <br>
 							<input type="radio" value="<?php echo $question['answer1']; ?>" name="<?php echo $question['id']; ?>" > <?php echo $question['answer1'];?> <br>
 							<input type="radio" value="<?php echo $question['answer2']; ?>"name="<?php echo $question['id']; ?>" > <?php echo $question['answer2'];?>
-							<br/><span style="color:#3399ff;"> - question by <?php echo $question['username'] ?></span><a class="pull-right definition" data-id = "<?php echo $question['id']; ?>" style="color:#3399ff; font-weight: bold;">REPORT QUESTION</a></li><br/>
+							<br/><span style="color:#3399ff;"> - question by <?php echo $question['username'] ?></span><a class="pull-right definition" data-id = "<?php echo $question['id']; ?>" style="color:#3399ff; font-weight: bold;"><img src="img/report.png"/></a></li><br/>
 						<?php
 					 	}
 					?>

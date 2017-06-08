@@ -17,6 +17,11 @@
  	$sqlDefinitions     = "SELECT definitions.*, subject_name FROM definitions INNER JOIN subjects ON definitions.subject_id = subjects.id WHERE user_id = '$uid'";
  	$definitions       		= mysql_query($sqlDefinitions, $connection) or die(mysql_error());
 
+
+ 	$sqlQuestions     = "SELECT questions.*, subject_name, username FROM questions INNER JOIN subjects ON questions.subject_id = subjects.id INNER JOIN users ON questions.user_id = users.id ORDER BY RAND() LIMIT 10";
+ 	$questions       		= mysql_query($sqlQuestions, $connection) or die(mysql_error());
+
+
  	$sqlSubjects = "SELECT * FROM subjects";
  	$subjects = mysql_query($sqlSubjects, $connection) or die(mysql_error());
 
@@ -61,12 +66,19 @@
 					<h3>Test your knowledge, take a quick test!</h3>
 					<form>
 						<ol>
-							<li><b>Pitanje?</b><br/>
-								<input type="radio" name="gender" value="male"> Odgovor 1 <br>
-								<input type="radio" name="gender" value="female"> Odgovor 2 <br>
-								<input type="radio" name="gender" value="other"> Odgovor 3
-							</li>
-						</ol>
+					<?php
+
+					 	while($question = mysql_fetch_assoc($questions)) {
+							?>
+							<li><?php echo $question['question']; ?><br/>
+							<input type="radio"  value="<?php echo $question['id']; ?>" name="<?php echo $question['id']; ?>"> <?php echo $question['correct_answer'];?> <br>
+							<input type="radio"  value="<?php echo $question['id']; ?>" name="<?php echo $question['id']; ?>"> <?php echo $question['answer1'];?> <br>
+							<input type="radio"  value="<?php echo $question['id']; ?>" name="<?php echo $question['id']; ?>"> <?php echo $question['answer2'];?>
+							<br/><span style="color:#3399ff;"> - question by <?php echo $question['username'] ?></span><a class="pull-right definition" data-id = "<?php echo $question['id']; ?>" style="color:#3399ff; font-weight: bold;">REPORT QUESTION</a></li><br/>
+						<?php
+					 	}
+					?>
+					</ol>
 					</form>
 				</div>
 				<div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 news">

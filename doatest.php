@@ -19,7 +19,7 @@
  	$definitions       		= mysql_query($sqlDefinitions, $connection) or die(mysql_error());
 
 
- 	$sqlQuestions     = "SELECT questions.*, subject_name, username FROM questions INNER JOIN subjects ON questions.subject_id = subjects.id INNER JOIN users ON questions.user_id = users.id WHERE subject_id = '$subjectId'";
+ 	$sqlQuestions     = "SELECT questions.*, subject_name, username FROM questions INNER JOIN subjects ON questions.subject_id = subjects.id INNER JOIN users ON questions.user_id = users.id WHERE subject_id = '$subjectId'  ORDER BY RAND() LIMIT 10";
  	$questions       		= mysql_query($sqlQuestions, $connection) or die(mysql_error());
 
 
@@ -66,21 +66,23 @@
 			<div class="row">
 				<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 content">
 					<br/>
-					<h3>Definitions for <?php echo $subjectNamee['subject_name'] ?> are:</h3><br/>
+					<center><h3>Test from <?php echo $subjectNamee['subject_name'] ?> !</h3></center><br/>
+					<form>
 					<ol>
 					<?php
 
 					 	while($question = mysql_fetch_assoc($questions)) {
 							?>
-							<li><?php echo $question['question']; ?><br/>
-							<input type="radio" name="gender" > <?php echo $question['correct_answer'];?> <br>
-							<input type="radio" name="gender" > <?php echo $question['answer1'];?> <br>
-							<input type="radio" name="gender" > <?php echo $question['answer2'];?>
+						<li><?php echo $question['question']; ?><br/>
+							<input type="radio" value="<?php echo $question['correct_answer']; ?>" name="<?php echo $question['id']; ?>" > <?php echo $question['correct_answer'];?> <br>
+							<input type="radio" value="<?php echo $question['answer1']; ?>" name="<?php echo $question['id']; ?>" > <?php echo $question['answer1'];?> <br>
+							<input type="radio" value="<?php echo $question['answer2']; ?>"name="<?php echo $question['id']; ?>" > <?php echo $question['answer2'];?>
 							<br/><span style="color:#3399ff;"> - question by <?php echo $question['username'] ?></span><a class="pull-right definition" data-id = "<?php echo $question['id']; ?>" style="color:#3399ff; font-weight: bold;">REPORT QUESTION</a></li><br/>
 						<?php
 					 	}
 					?>
 					</ol>
+					</form>
 				</div>
 			</div>
 		</div>

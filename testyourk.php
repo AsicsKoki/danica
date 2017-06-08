@@ -21,10 +21,11 @@
  	$subjects = mysql_query($sqlSubjects, $connection) or die(mysql_error());
 
 ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Study - Learnicious</title>
+		<title>Home - Learnicious</title>
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" type="text/css"  href="css/home.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -37,11 +38,11 @@
 				    <ul class="nav navbar-nav navbar-left">
 				    	<li class="logo"><img src="img/logo_small.png"></li>
 				        <li><a href="home.php">Home</a></li>
-				        <li class="active"><a href="study.php">Study</a></li>
-				        <li><a href="testyourk.php">Test your knowledge</a></li>
+				        <li><a href="study.php">Study</a></li>
+				        <li class="active"><a href="#">Test your knowledge</a></li>
 				    </ul>
 				    <ul class="nav navbar-nav navbar-right">
-				    	<li class="dropdown">    
+				    	<li class="dropdown"> 
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="aktivnosti"> My profile <b class="caret"></b></a> 
 							<ul class="dropdown-menu"> 
 								<li><a href="#">Favourites</a></li> 
@@ -56,26 +57,37 @@
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 content">
-					<center><h3>Choose a subject you would like to study:</h3></center>
-					<ul><hr>
+				<div class="col-md-7 col-lg-7 col-sm-12 col-xs-12 content">
+					<h3>Test your knowledge, take a quick test!</h3>
+					<form>
+						<ol>
+							<li><b>Pitanje?</b><br/>
+								<input type="radio" name="gender" value="male"> Odgovor 1 <br>
+								<input type="radio" name="gender" value="female"> Odgovor 2 <br>
+								<input type="radio" name="gender" value="other"> Odgovor 3
+							</li>
+						</ol>
+					</form>
+				</div>
+				<div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 news">
+					<h3><b>Choose a subject for testing your knowledge:</b></h3><br/>
 					<?php
 
 					 	while($subject = mysql_fetch_assoc($subjects)) {
 							?>
-							<li>
-								<a class="plavaSlova" href=<?php echo "subjects.php?subjectId=". $subject['id']?>>
+							<li id="belaPozadina">
+								<a class="plavaSlova" href=<?php echo "doatest.php?subjectId=". $subject['id']?>>
 									<b><?php echo $subject['subject_name']; ?></b>
-								</a> <br/>
-								<?php echo $subject['subject_description']; ?><?php  ?><br/>
+								</a>
 
-							</li><hr/>
+							</li>
+							
+							<p><?php echo $subject['subject_description']; ?><?php  ?><br/><br/></p>
 						<?php
 					 	}
 					?>
-					</ul>
 				</div>
 			</div>
 		</div>
 	</body>
-</html>
+</html>	

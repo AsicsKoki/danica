@@ -27,7 +27,7 @@
 				    	<li class="logo"><img src="img/logo_small.png"></li>
 				        <li class="active"><a href="home.php">Home</a></li>
 				        <li><a href="study.php">Study</a></li>
-				        <li><a href="#">Test your knowledge</a></li>
+				        <li><a href="testyourk.php">Test your knowledge</a></li>
 				    </ul>
 				    <ul class="nav navbar-nav navbar-right">
 				    	<li class="dropdown"> 
@@ -35,6 +35,7 @@
 							<ul class="dropdown-menu"> 
 								<li><a href="#">Favourites</a></li> 
 								<li><a href="myDefinitions.php">My definitions</a></li>
+								<li><a href="myQuestions.php">My questions</a></li>
 								<li><a href="logout.php">Log out</a></li>
 							</ul>
 						</li>

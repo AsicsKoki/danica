@@ -1,15 +1,14 @@
 body{
 	background-color:#3399ff !important;
+	color: #6A6969;
 }
-a {
-	color: black !important;
 
-}
 .dropdown-toggle{
 	color: #eee !important;
 }
+
 .rss{
-	color: #9d9d9d !important;
+	color: #9d9d9d;
 	background-color: #ddd !important;
 	opacity: +4;
 }
@@ -34,6 +33,7 @@ a {
 .logo{
 	padding: 5px;
 }
+
 .news{
 	color: #F8F8F8 !important;
 }
@@ -49,7 +49,7 @@ a {
 }
 
 .dropdown-menu > li > a{
-	color:#3399ff;
+	color : #3399ff !important;
 }
 
 .dropdown-menu > li > a:hover{
@@ -79,4 +79,15 @@ a {
 
 #slika{
 	background: url(../img/fizika_lg.png);	
+}
+
+#belaPozadina{
+	background-color: white;
+	color:#3399ff;
+	padding-left: 10px;
+	border-radius: 5px;
+}
+
+.plavaSlova{
+	color:#3399ff !important;
 }

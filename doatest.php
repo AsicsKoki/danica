@@ -18,6 +18,11 @@
  	$sqlDefinitions     = "SELECT definitions.*, subject_name, username FROM definitions INNER JOIN subjects ON definitions.subject_id = subjects.id INNER JOIN users ON definitions.user_id = users.id WHERE subject_id = '$subjectId'";
  	$definitions       		= mysql_query($sqlDefinitions, $connection) or die(mysql_error());
 
+
+ 	$sqlQuestions     = "SELECT questions.*, subject_name, username FROM questions INNER JOIN subjects ON questions.subject_id = subjects.id INNER JOIN users ON questions.user_id = users.id WHERE subject_id = '$subjectId'";
+ 	$questions       		= mysql_query($sqlQuestions, $connection) or die(mysql_error());
+
+
  	$sqlSubjects = "SELECT * FROM subjects";
  	$subjects = mysql_query($sqlSubjects, $connection) or die(mysql_error());
  	$sqlSubjectsName = "SELECT * FROM subjects WHERE id='$subjectId'";
@@ -27,7 +32,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Study - Learnicious</title>
+		<title>Test your knowledge - Learnicious</title>
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" type="text/css"  href="css/home.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -40,8 +45,8 @@
 				    <ul class="nav navbar-nav navbar-left">
 				    	<li class="logo"><img src="img/logo_small.png"></li>
 				        <li><a href="home.php">Home</a></li>
-				        <li class="active"><a href="study.php">Study</a></li>
-				        <li><a href="testyourk.php">Test your knowledge</a></li>
+				        <li><a href="study.php">Study</a></li>
+				        <li class="active"><a href="testyourk.php">Test your knowledge</a></li>
 				    </ul>
 				    <ul class="nav navbar-nav navbar-right">
 				    	<li class="dropdown">    
@@ -65,9 +70,13 @@
 					<ol>
 					<?php
 
-					 	while($definition = mysql_fetch_assoc($definitions)) {
+					 	while($question = mysql_fetch_assoc($questions)) {
 							?>
-							<li><?php echo $definition['definition']; ?> <br/><span style="color:#3399ff;"> - definition by <?php echo $definition['username'] ?></span><a class="pull-right definition" data-id = "<?php echo $definition['id']; ?>" style="color:#3399ff; font-weight: bold;">REPORT DEFINITION</a></li><br/>
+							<li><?php echo $question['question']; ?><br/>
+							<input type="radio" name="gender" > <?php echo $question['correct_answer'];?> <br>
+							<input type="radio" name="gender" > <?php echo $question['answer1'];?> <br>
+							<input type="radio" name="gender" > <?php echo $question['answer2'];?>
+							<br/><span style="color:#3399ff;"> - question by <?php echo $question['username'] ?></span><a class="pull-right definition" data-id = "<?php echo $question['id']; ?>" style="color:#3399ff; font-weight: bold;">REPORT QUESTION</a></li><br/>
 						<?php
 					 	}
 					?>

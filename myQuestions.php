@@ -17,6 +17,9 @@
  	$sqlDefinitions     = "SELECT definitions.*, subject_name FROM definitions INNER JOIN subjects ON definitions.subject_id = subjects.id WHERE user_id = '$uid'";
  	$definitions       		= mysql_query($sqlDefinitions, $connection) or die(mysql_error());
 
+ 	$sqlQuestions		= "SELECT questions.*, subject_name FROM questions INNER JOIN subjects ON questions.subject_id = subjects.id WHERE user_id = '$uid'";
+ 	$questions       		= mysql_query($sqlQuestions, $connection) or die(mysql_error());
+
  	$sqlSubjects = "SELECT * FROM subjects";
  	$subjects = mysql_query($sqlSubjects, $connection) or die(mysql_error());
 
@@ -24,7 +27,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>My Definitions - Learnicious</title>
+		<title>My Questions - Learnicious</title>
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" type="text/css"  href="css/home.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -55,22 +58,26 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 content">
-				<h3>Your created definitions:</h3>
+				<h3>Your created questions:</h3>
 					<ol>
 					<?php
 
-					 	while($definition = mysql_fetch_assoc($definitions)) {
+					 	while($question = mysql_fetch_assoc($questions)) {
 							?>
-							<li><?php echo $definition['definition']; ?> - <?php echo $definition['subject_name'] ?> <?php ?><br/> - <?php  ?> <a href=<?php echo "deleteDefinition.php?definitionId=". $definition['id']?>>Delete -</a><br/><br/></li>
+							<li><span class="plavaSlova">Question: </span><?php echo $question['question']; ?>
+							<br/><span class="plavaSlova">Correct answer: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span><?php echo $question['correct_answer']; ?>
+							<br/><span class="plavaSlova">First incorrect answer: &nbsp&nbsp&nbsp&nbsp&nbsp</span><?php echo $question['answer1']; ?>
+							<br/><span class="plavaSlova">Second incorrect answer: </span><?php echo $question['answer2']; ?>
+							 - <?php echo $question['subject_name'] ?> <?php ?><br/> - <?php  ?> <a href=<?php echo "deleteQuestion.php?questionId=". $question['id']?>> Delete -</a><br/><br/></li>
 						<?php
 					 	}
 					?>
 					</ol>
 				</div>
 				<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-					<h2 class="news">Create your definition!</h2><br>
+					<h2 class="news">Create your questions!</h2><br>
 					<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-						<form action="postDefinition.php" method="POST">
+						<form action="postQuestion.php" method="POST">
 							<div class="row">
 								<select name="subject" class="form-control">
 								<?php 
@@ -84,8 +91,18 @@
 								</select>
 							</div>
 							<br>
+							
 							<div class="row">
-								<textarea id="textDefinition" name="definition" placeholder="Write your definition here..." rows="7"  class="form-control" required></textarea>
+								<textarea id="textQuestion" name="question" placeholder="Write your question here..." rows="3"  class="form-control" required></textarea>
+							</div><br/>
+							<div class="row">
+								<textarea id="correctAnswer" name="correctAnswer"  placeholder="Write CORRECT answer here..." rows="1"  class="form-control" required></textarea>
+							</div><br/>
+							<div class="row">
+								<textarea id="Answer1" name="answer1" placeholder="Write first INCORRECT answer here..." rows="1"  class="form-control" required></textarea>
+							</div><br/>
+							<div class="row">
+								<textarea id="Answer2" name="answer2" placeholder="Write second INCORRECT answer here..." rows="1"  class="form-control" required></textarea>
 							</div>
 							<br>
 							<div class="row">

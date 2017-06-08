@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2017 at 07:58 PM
+-- Generation Time: Jun 08, 2017 at 08:04 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -108,7 +108,6 @@ INSERT INTO `definitions` (`id`, `subject_id`, `user_id`, `definition`) VALUES
 (95, 7, 1, 'A history journal is an academic serial publication designed to present new scholarship on a historical subject, usually a subfield of history, with articles generally being subjected to peer review.'),
 (96, 7, 1, 'A manuscript is any document written by hand or typewritten, as opposed to being mechanically printed or reproduced in some indirect or automated way.'),
 (97, 7, 1, 'Palaeography is the study of ancient and historical handwriting (that is to say, of the forms and processes of writing, not the textual content of documents). Included in the discipline is the practice of deciphering, reading, and dating historical manuscripts, and the cultural context of writing, including the methods with which writing and books were produced, and the history of scriptoria. The discipline is important for understanding, authenticating, and dating ancient texts.'),
-(98, 8, 1, 'Canvas is a strong, woven cloth traditionally used by artists as a support (surface on which to paint).'),
 (99, 8, 1, 'In the arts, bricolage (French for \"DIY\" or \"do-it-yourself projects\") is the construction or creation of a work from a diverse range of things that happen to be available, or a work created by such a process.'),
 (100, 8, 1, 'Fantastic realism refers to the work of a group of painters working in the late 1950s in Vienna who combined the painterly precision of the old masters with an interest in modern art movements and psychoanalysis.'),
 (101, 8, 1, 'Installation art is used to describe large-scale, mixed-media constructions, often designed for a specific place or for a temporary period of time.'),
@@ -118,7 +117,33 @@ INSERT INTO `definitions` (`id`, `subject_id`, `user_id`, `definition`) VALUES
 (105, 8, 1, 'Canon is a group of artistic, literary, or musical works that are generally accepted as representing a field.'),
 (106, 8, 1, 'Calligraphy is a visual art related to writing. It is the design and execution of lettering with a broad tip instrument, brush, or other writing instruments.'),
 (108, 8, 1, 'Conceptual art is art that emerged in the late 1960s, emphasizing ideas and theoretical practices rather than the creation of visual forms. In 1967, the artist Sol LeWitt gave the new genre its name in his essay â€œParagraphs on Conceptual Art,â€ in which he wrote, â€œThe idea itself, even if not made visual, is as much a work of art as any finished product.â€'),
-(110, 5, 2, 'Astronomija\r\n');
+(110, 5, 2, 'Astronomija\r\n'),
+(111, 8, 2, 'Art is art.'),
+(112, 8, 2, 'definiija');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `questions`
+--
+
+CREATE TABLE `questions` (
+  `id` int(11) NOT NULL,
+  `subject_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `question` text NOT NULL,
+  `correct_answer` text NOT NULL,
+  `answer1` text NOT NULL,
+  `answer2` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `questions`
+--
+
+INSERT INTO `questions` (`id`, `subject_id`, `user_id`, `question`, `correct_answer`, `answer1`, `answer2`) VALUES
+(4, 1, 2, 'pitanjenjejnje', 'pravi', 'nije', 'nije'),
+(6, 1, 2, 'hffhfasihfshoifsaih', 'jfkfs', 'jfdihfsdih', 'hfhe');
 
 -- --------------------------------------------------------
 
@@ -183,6 +208,15 @@ ALTER TABLE `definitions`
   ADD KEY `predmet_id` (`subject_id`);
 
 --
+-- Indexes for table `questions`
+--
+ALTER TABLE `questions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `subject_id` (`subject_id`),
+  ADD KEY `subject_id_2` (`subject_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `subjects`
 --
 ALTER TABLE `subjects`
@@ -205,7 +239,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `definitions`
 --
 ALTER TABLE `definitions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+--
+-- AUTO_INCREMENT for table `questions`
+--
+ALTER TABLE `questions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `subjects`
 --
@@ -226,6 +265,13 @@ ALTER TABLE `users`
 ALTER TABLE `definitions`
   ADD CONSTRAINT `definitions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `definitions_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `questions`
+--
+ALTER TABLE `questions`
+  ADD CONSTRAINT `subject` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`),
+  ADD CONSTRAINT `user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

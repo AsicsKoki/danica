@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2017 at 10:50 PM
+-- Generation Time: Jun 09, 2017 at 02:50 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -124,6 +124,43 @@ INSERT INTO `definitions` (`id`, `subject_id`, `user_id`, `definition`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `favourites`
+--
+
+CREATE TABLE `favourites` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `definition_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `favourites`
+--
+
+INSERT INTO `favourites` (`id`, `user_id`, `definition_id`) VALUES
+(18, 1, 28),
+(19, 1, 28),
+(22, 1, 32),
+(25, 1, 25),
+(26, 1, 34),
+(29, 1, 46),
+(31, 1, 47),
+(36, 1, 30),
+(37, 1, 30),
+(39, 1, 40),
+(41, 1, 35),
+(42, 1, 35),
+(43, 1, 35),
+(44, 1, 37),
+(45, 1, 39),
+(46, 2, 25),
+(47, 2, 40),
+(48, 2, 24),
+(49, 2, 47);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `questions`
 --
 
@@ -163,7 +200,8 @@ INSERT INTO `questions` (`id`, `subject_id`, `user_id`, `question`, `correct_ans
 (24, 1, 1, 'What is formula?', '\r\nFormula is a rule that describes the relationship of two or more variables. An equation stating the rule', 'Formula can not describe the relationship', 'Formula is not a rule'),
 (25, 1, 1, 'What is frequency?', 'Frequency is the number of times an event can happen in a specific period of times. Often used in probability.', 'Frequency is not the number of times', 'Can not be used in probability'),
 (26, 1, 1, 'What is logarithm?', '\r\nLogarithm is a power to which a base, [actually 10] must be raised to produce a given number. If nx = a, the logarithm of a, with n as the base, is x.', 'Logarithm is not a power ', 'Can not be raised'),
-(27, 2, 1, 'What does H topology means?', 'In algebraic geometry, the h topology is a Grothendieck topology introduced by Vladimir Voevodsky to study the homology of schemes. It has several variants, such as the qfh and cdh topologies.', 'H topology means that topology looks like letter H.', 'H topology means that we have three topologies in one scheme.');
+(27, 2, 1, 'What does H topology means?', 'In algebraic geometry, the h topology is a Grothendieck topology introduced by Vladimir Voevodsky to study the homology of schemes. It has several variants, such as the qfh and cdh topologies.', 'H topology means that topology looks like letter H.', 'H topology means that we have three topologies in one scheme.'),
+(28, 1, 2, 'LALALAL', 'FSJFSK', 'ljfsj', 'jdjsd');
 
 -- --------------------------------------------------------
 
@@ -228,6 +266,14 @@ ALTER TABLE `definitions`
   ADD KEY `predmet_id` (`subject_id`);
 
 --
+-- Indexes for table `favourites`
+--
+ALTER TABLE `favourites`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `definition_id` (`definition_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `questions`
 --
 ALTER TABLE `questions`
@@ -259,12 +305,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `definitions`
 --
 ALTER TABLE `definitions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+--
+-- AUTO_INCREMENT for table `favourites`
+--
+ALTER TABLE `favourites`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `subjects`
 --
@@ -285,6 +336,13 @@ ALTER TABLE `users`
 ALTER TABLE `definitions`
   ADD CONSTRAINT `definitions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `definitions_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `favourites`
+--
+ALTER TABLE `favourites`
+  ADD CONSTRAINT `favourites_ibfk_1` FOREIGN KEY (`definition_id`) REFERENCES `definitions` (`id`),
+  ADD CONSTRAINT `favourites_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `questions`

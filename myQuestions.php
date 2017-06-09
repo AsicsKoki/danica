@@ -14,10 +14,10 @@
 	}
 	$uid = $_SESSION["id"];
 
- 	$sqlDefinitions     = "SELECT definitions.*, subject_name FROM definitions INNER JOIN subjects ON definitions.subject_id = subjects.id WHERE user_id = '$uid'";
+ 	$sqlDefinitions     = "SELECT definitions.*, subject_name FROM definitions INNER JOIN subjects ON definitions.subject_id = subjects.id WHERE user_id = '$uid'" ;
  	$definitions       		= mysql_query($sqlDefinitions, $connection) or die(mysql_error());
 
- 	$sqlQuestions		= "SELECT questions.*, subject_name FROM questions INNER JOIN subjects ON questions.subject_id = subjects.id WHERE user_id = '$uid'";
+ 	$sqlQuestions		= "SELECT questions.*, subject_name FROM questions INNER JOIN subjects ON questions.subject_id = subjects.id WHERE user_id = '$uid' ORDER BY questions.id DESC";
  	$questions       		= mysql_query($sqlQuestions, $connection) or die(mysql_error());
 
  	$sqlSubjects = "SELECT * FROM subjects";
@@ -46,7 +46,7 @@
 			    	<li class="dropdown active"> 
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="aktivnosti"> My profile <b class="caret"></b></a> 
 						<ul class="dropdown-menu"> 
-							<li><a href="#">Favourites</a></li> 
+							<li><a href="myFavourites.php">Favourites</a></li> 
 							<li><a href="myDefinitions.php">My definitions</a></li>
 							<li><a href="myQuestions.php">My questions</a></li>
 							<li><a href="logout.php">Log out</a></li>

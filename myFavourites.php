@@ -14,8 +14,10 @@
 	}
 	$uid = $_SESSION["id"];
 
- 	$sqlDefinitions     = "SELECT definitions.*, subject_name FROM definitions INNER JOIN subjects ON definitions.subject_id = subjects.id WHERE user_id = '$uid' ORDER BY definitions.id DESC";
- 	$definitions       		= mysql_query($sqlDefinitions, $connection) or die(mysql_error());
+ 	$sqlFavourited     = "SELECT favourites.*, definition, definitions.id, subject_name FROM favourites INNER JOIN (definitions INNER JOIN subjects ON definitions.subject_id = subjects.id) ON favourites.definition_id = definitions.id WHERE favourites.user_id = '$uid' ORDER BY favourites.id DESC";
+ 	$favourited   		= mysql_query($sqlFavourited, $connection) or die(mysql_error());
+
+
 
  	$sqlSubjects = "SELECT * FROM subjects";
  	$subjects = mysql_query($sqlSubjects, $connection) or die(mysql_error());
@@ -54,48 +56,22 @@
 		</nav>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 content">
-				<h3>Your created definitions:</h3>
+				<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 content">
+				<center><h3>Your favourited definitions:</h3></center><br/>
 					<ol>
 					<?php
 
-					 	while($definition = mysql_fetch_assoc($definitions)) {
+					 	while($favouritedd = mysql_fetch_assoc($favourited)) {
 							?>
 							<li>
-							<span class="plavaSlova">Subject: </span><?php echo $definition['subject_name'] ?><br/>
-							<?php echo $definition['definition']; ?><br/><a class="plavaSlova pull-right" href=<?php echo "deleteDefinition.php?definitionId=". $definition['id']?>>Delete</a><br/><br/></li>
+							<span class="plavaSlova">Subject: </span><?php echo $favouritedd['subject_name'] ?><br/>
+							<?php echo $favouritedd['definition']; ?><br/><br/><br/></li>
 						<?php
 					 	}
 					?>
 					</ol>
 				</div>
-				<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-					<h2 class="news">Create your definition!</h2><br>
-					<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-						<form action="postDefinition.php" method="POST">
-							<div class="row">
-								<select name="subject" class="form-control">
-								<?php 
-
-								 	while($subject = mysql_fetch_assoc($subjects)) {
-										?>
-									<option value='<?php echo $subject['id'] ?>'><?php echo $subject['subject_name'] ?></option>
-									<?php
-								 	}
-								 ?>
-								</select>
-							</div>
-							<br>
-							<div class="row">
-								<textarea id="textDefinition" name="definition" placeholder="Write your definition here..." rows="7"  class="form-control" required></textarea>
-							</div>
-							<br>
-							<div class="row">
-								<button type="submit" class="pull-right btn">Submit</button>
-							</div>
-						</form>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</body>

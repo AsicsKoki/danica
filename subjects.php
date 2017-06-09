@@ -47,7 +47,7 @@
 				    	<li class="dropdown">    
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="aktivnosti"> My profile <b class="caret"></b></a> 
 							<ul class="dropdown-menu"> 
-								<li><a href="#">Favourites</a></li> 
+								<li><a href="myFavourites.php">Favourites</a></li> 
 								<li><a href="myDefinitions.php">My definitions</a></li>
 								<li><a href="myQuestions.php">My questions</a></li>
 								<li><a href="logout.php">Log out</a></li>
@@ -72,7 +72,7 @@
 
 							<?php
 								$did = $definition['id'];
-								$sqlResult = "SELECT * FROM favourites WHERE definition_id = '$did'";
+								$sqlResult = "SELECT * FROM favourites WHERE definition_id = '$did' AND user_id = '$uid'";
 								$result = mysql_query($sqlResult);
 								$num_rows = mysql_num_rows($result);
 

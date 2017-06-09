@@ -91,3 +91,24 @@ body{
 .plavaSlova{
 	color:#3399ff !important;
 }
+
+.definition{
+	color:#3399ff; 
+	font-weight: bold;
+}
+
+.star{
+	margin-right: -20px;
+}
+
+.favourite{
+	height:18px;
+	width:19px;
+	background: url(../img/star.png);
+}
+
+.favourited{
+	height:18px;
+	width:20px;
+	background: url(../img/fstar.png);
+}

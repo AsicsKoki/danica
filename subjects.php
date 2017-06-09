@@ -67,7 +67,29 @@
 
 					 	while($definition = mysql_fetch_assoc($definitions)) {
 							?>
-							<li><?php echo $definition['definition']; ?> <br/><span style="color:#3399ff;"> - definition by <?php echo $definition['username'] ?></span><a class="pull-right definition" data-id = "<?php echo $definition['id']; ?>" style="color:#3399ff; font-weight: bold;"><img src="img/report.png"/></a></li><br/>
+							<li><?php echo $definition['definition']; ?> <br/><span style="color:#3399ff;"> - definition by <?php echo $definition['username'] ?></span>
+							<a class="pull-right definition" data-id = "<?php echo $definition['id']; ?>"><img src="img/report.png"/></a>
+
+							<?php
+								$did = $definition['id'];
+								$sqlResult = "SELECT * FROM favourites WHERE definition_id = '$did'";
+								$result = mysql_query($sqlResult);
+								$num_rows = mysql_num_rows($result);
+
+								if ($num_rows > 0) {
+							  	?>
+									<a class="pull-right" ><div class="favourited" data-id = "<?php echo $definition['id']; ?>" ></div></a>
+							  	<?php
+								}
+								else {
+							 	?>
+									<a class="pull-right" ><div class="favourite" data-id = "<?php echo $definition['id']; ?>" ></div></a>
+						  		<?php
+								}
+							 ?>
+
+
+							</li><br/>
 						<?php
 					 	}
 					?>
@@ -92,6 +114,38 @@
 			           url: "report.php",
 			           data: data,
 			           dataType: "text"
+			});
+		});
+		$(".favourite").click(function(e){
+			e.preventDefault();
+			var self = this;
+			var definitionId = $(this).data('id');
+		    data = { 
+    		 	definitionId: definitionId
+    		};
+			$.ajax({
+		            type: "POST",
+		            url: "favourite.php",
+		            data: {definitionId: definitionId},
+					success: function(data){
+						$(self).removeClass('favourite').addClass('favourited');
+				}
+			});
+		});
+		$(".favourited").click(function(e){
+			e.preventDefault();
+			var self = this;
+			var definitionId = $(this).data('id');
+		    data = { 
+    		 	definitionId: definitionId
+    		};
+			$.ajax({
+		            type: "POST",
+		            url: "unfavourite.php",
+		            data: {definitionId: definitionId},
+					success: function(data){
+						$(self).removeClass('favourited').addClass('favourite');
+				}
 			});
 		});
 	

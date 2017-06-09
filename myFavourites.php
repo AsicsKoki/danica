@@ -45,7 +45,7 @@
 			    	<li class="dropdown active"> 
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="aktivnosti"> My profile <b class="caret"></b></a> 
 						<ul class="dropdown-menu"> 
-							<li><a href="myFavourites.php">Favourites</a></li> 
+							<li><a href="myFavourites">Favourites</a></li> 
 							<li><a href="myDefinitions.php">My definitions</a></li>
 							<li><a href="myQuestions.php">My questions</a></li>
 							<li><a href="logout.php">Log out</a></li>
@@ -57,7 +57,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 content">
-				<center><h3>Your favourited definitions:</h3></center><br/>
+				<center><h3>Your favourite definitions:</h3></center><br/>
 					<ol>
 					<?php
 
